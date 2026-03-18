@@ -1,0 +1,11 @@
+crm_client_id,nom,email,telephone,ville,segment,date_inscription
+CRM001,Ahmed Benali,ahmed.benali@gmail.com,+212612345678,Casablanca,Premium,2022-03-15
+CRM002,Fatima Zahra,fatima.zahra@hotmail.com,+212698765432,Rabat,Standard,2021-07-22
+CRM003,Youssef Alami,youssef.alami@yahoo.com,+212655443322,Marrakech,Premium,2023-01-10
+CRM004,Nadia Cherkaoui,nadia.cherkaoui@gmail.com,+212677889900,Fes,Standard,2020-11-05
+CRM005,Khalid Mansouri,khalid.mansouri@outlook.com,+212633221144,Casablanca,VIP,2022-06-18
+CRM006,Samira Tazi,samira.tazi@gmail.com,+212644556677,Agadir,Standard,2023-04-02
+CRM007,Omar Idrissi,omar.idrissi@gmail.com,+212611223344,Tanger,Premium,2021-09-30
+CRM008,Laila Bensouda,laila.bensouda@hotmail.com,+212622334455,Casablanca,VIP,2022-12-14
+CRM009,Hassan Qadiri,hassan.qadiri@gmail.com,+212655667788,Rabat,Standard,2023-02-28
+CRM010,Zineb Moussaoui,zineb.moussaoui@gmail.com,+212688990011,Meknes,Premium,2021-05-17

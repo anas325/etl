@@ -1,0 +1,11 @@
+crm_product_id,nom_produit,categorie,prix_catalogue
+PCRM001,Laptop HP 15,Informatique,5499.99
+PCRM002,Smartphone Samsung S23,Téléphonie,7999.00
+PCRM003,Tablette iPad Air,Informatique,6200.00
+PCRM004,Imprimante Canon,Bureautique,1250.50
+PCRM005,Clavier Logitech,Accessoires,350.00
+PCRM006,Souris Sans Fil,Accessoires,180.00
+PCRM007,Écran 27 pouces Dell,Informatique,3200.00
+PCRM008,Casque Audio Sony,Multimédia,950.00
+PCRM009,Webcam Logitech HD,Accessoires,420.00
+PCRM010,Disque Dur Externe 1TB,Stockage,650.00
