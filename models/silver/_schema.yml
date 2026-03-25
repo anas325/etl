@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: client_clean
+    description: Unified customer view from CRM and ERP — cleaned and type-cast.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: source_system
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['CRM', 'ERP']
+
+  - name: produits_clean
+    description: Unified product view from CRM and ERP — prices cast to DECIMAL, stock to INT.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+      - name: source_system
+        tests:
+          - accepted_values:
+              values: ['CRM', 'ERP']
+
+  - name: detail_commande_clean
+    description: Unified order details from CRM and ERP — dates parsed, quantities cast.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: client_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('client_clean')
+              field: customer_id
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('produits_clean')
+              field: product_id
+      - name: source_system
+        tests:
+          - accepted_values:
+              values: ['CRM', 'ERP']

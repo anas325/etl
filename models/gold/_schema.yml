@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: dim_client
+    description: Customer dimension — one row per customer from CRM or ERP.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_produits
+    description: Product dimension — one row per product from CRM or ERP.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: Date dimension covering 2020-01-01 through 2030-12-31.
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_orders
+    description: Order facts with revenue, cost, and profit per order line.
+    columns:
+      - name: order_number
+        tests:
+          - not_null
+      - name: time_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: product_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_produits')
+              field: product_id

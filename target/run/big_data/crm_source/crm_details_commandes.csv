@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table `ecommerce_bronze`.`crm_details_commandes`;
+    -- dbt seed --
+    
+          insert into `ecommerce_bronze`.`crm_details_commandes` (crm_order_id, crm_client_id, crm_product_id, date_commande, quantite) values
+          (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+      
+
+;
+  

@@ -1,20 +1,26 @@
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql 
-      - ./crm_source:/var/lib/mysql-files/crm_source  # CSV CRM
-      - ./erp_source:/var/lib/mysql-files/erp_source # CSV ERP
-      - ./sql:/var/lib/mysql-files/sql 
+      - mysql_data:/var/lib/mysql
+      - ./crm_source:/var/lib/mysql-files/crm_source
+      - ./erp_source:/var/lib/mysql-files/erp_source
+      - ./SQL:/var/lib/mysql-files/sql
       - ./Scripts:/var/scripts
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     command: --secure-file-priv=/var/lib/mysql-files --local-infile=1
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -28,6 +34,24 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_ARBITRARY: 0
+
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dbt
+    volumes:
+      - .:/usr/app/dbt
+    depends_on:
+      mysql:
+        condition: service_healthy
+    command: >
+      bash -c "dbt seed --profiles-dir . &&
+               dbt run --profiles-dir . &&
+               dbt test --profiles-dir .";
+      bash -c "dbt run && dbt docs generate && dbt docs serve --port 8080 --host 0.0.0.0"
+    ports:
+    - "8081:8080"
 
 volumes:
   mysql_data:

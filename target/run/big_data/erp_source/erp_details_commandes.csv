@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table `ecommerce_bronze`.`erp_details_commandes`;
+    -- dbt seed --
+    
+          insert into `ecommerce_bronze`.`erp_details_commandes` (erp_order_id, erp_client_id, erp_product_id, date_facture, quantite, prix_unitaire, statut) values
+          (%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s)
+      
+
+;
+  

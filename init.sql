@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS ecommerce_bronze;
+CREATE DATABASE IF NOT EXISTS ecommerce_silver;
+CREATE DATABASE IF NOT EXISTS ecommerce_gold;

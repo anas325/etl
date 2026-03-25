@@ -1,0 +1,11 @@
+big_data:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: mysql
+      port: 3306
+      schema: ecommerce
+      username: root
+      password: root
+      ssl_disabled: true

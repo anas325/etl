@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table `ecommerce_bronze`.`erp_clients`;
+    -- dbt seed --
+    
+          insert into `ecommerce_bronze`.`erp_clients` (erp_client_id, nom, ice, ville, pays, date_creation) values
+          (%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s)
+      
+
+;
+  
